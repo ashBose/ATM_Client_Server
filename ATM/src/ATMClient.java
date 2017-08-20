@@ -23,8 +23,7 @@ public class ATMClient {
 
 	public Socket connect() throws IOException {
 		try {
-			socket = new Socket( host, port );
-			
+		socket = new Socket( host, port );	
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -38,7 +37,7 @@ public class ATMClient {
 	        	ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
 	        	oos.writeObject(outtransaction);
 				intransaction = (TransactionObject)ois.readObject();
-				statementType objStmtType = factory.createStatements("selection");
+				statementType objStmtType = factory.createStatements("mini");
 				System.out.println(objStmtType.print());
 				//oos.close();
 				//ois.close();
